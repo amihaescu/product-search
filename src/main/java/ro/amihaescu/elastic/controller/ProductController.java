@@ -1,16 +1,24 @@
 package ro.amihaescu.elastic.controller;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ro.amihaescu.elastic.controller.dto.ProductCreationDTO;
+import ro.amihaescu.elastic.model.Product;
+import ro.amihaescu.elastic.repository.ProductRepository;
 
-@RestController("product")
+@RestController
+@RequestMapping("product")
 public class ProductController {
 
+    private final ProductRepository productRepository;
+
+    public ProductController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
     @PostMapping
-    public ResponseEntity<Void> addProduct(@RequestBody ProductCreationDTO productCreationDTO){
-        return null;
+    public ResponseEntity<Long> addProduct(@RequestBody ProductCreationDTO productCreationDTO){
+        Product savedProduct = productRepository.save(new Product(productCreationDTO));
+        return ResponseEntity.ok(savedProduct.getId());
     }
 }

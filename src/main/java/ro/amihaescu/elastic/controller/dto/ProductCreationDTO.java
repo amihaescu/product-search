@@ -1,15 +1,19 @@
 package ro.amihaescu.elastic.controller.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductCreationDTO {
 
-    @Id
-    @GeneratedValue
-    private long id;
     @NotNull
     private double price;
     @NotNull

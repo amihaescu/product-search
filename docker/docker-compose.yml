@@ -1,0 +1,10 @@
+version: "3"
+services:
+  product-db:
+    container_name: "elastic-postgres"
+    image: postgres:12
+    environment:
+        POSTGRES_PASSWORD: elastic
+        POSTGRES_USER: elastic
+    ports:
+      - 5431:5432
