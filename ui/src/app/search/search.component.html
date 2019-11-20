@@ -1,6 +1,8 @@
-<div class="d-flex">
-  <div class="w-50 p-2">
-    <label for="typeahead-basic">Search for a state:</label>
-    <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
-  </div>
+<div class="my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="search"
+         placeholder="Search" aria-label="Search"
+         [(ngModel)]="model"
+         [ngbTypeahead]="search"
+         [resultFormatter]="formatter"
+         [inputFormatter]="formatter">
 </div>

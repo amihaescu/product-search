@@ -1,1 +1,35 @@
-<p>admin works!</p>
+<div class="d-flex">
+  <div class="w-50 p-2">
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" [formControl]="title" class="form-control" id="title" aria-describedby="emailHelp"
+               placeholder="Enter email">
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" id="price" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea [formControl]="description" class="form-control" id="description"
+                  placeholder="Description"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="description">Tags</label>
+        <div class="p-2">
+          <h4>
+            <span class="badge badge-primary m-1" *ngFor="let tag of tags">{{tag}}</span>
+          </h4>
+        </div>
+        <input [formControl]="tag" (keydown.enter)="addTag()" type="text" class="form-control" id="tags"
+               placeholder="Tags">
+      </div>
+      <div class="form-group">
+        <label for="description">Images</label>
+        <input [formControl]="image" type="text" class="form-control" id="images" placeholder="image/url">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
